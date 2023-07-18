@@ -1,42 +1,26 @@
-<h1>Dream Feed Page</h1>
+{{!-- Homepage --}}
 
-<h3>Recent Dreams from our Users:</h3>
-
-<hr>
-
-{{#each dreamArr}}
-<div class="previousDreamsFeed">
-
-    <div class="dreamHeader">
-        <div class="creatorDetails">
-            <p>Dreamer: {{user.name}}</p>
-            <p>Subject: {{subject}}</p>
-            <p>Date: {{format_date date_created}}</p>
+{{!-- Homepage container --}}
+<div class="container-fluid homepage-content">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <h1 class="fixed-title">Tech Blog</h1>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="fact-container">
+        <div class="fact-text-wrapper">
+          <p class="fact-text" id="randomDreamFact">"Come do a little bloggin'"</p>
         </div>
+      </div>
     </div>
-
-    <div class="dreamResults">
-        <p class="dreamDesc"><em>Brief Description: </em>{{description}}</p>
-        <p><em>Interpretation: </em></p>
-        <p>{{interpretation}}</p>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="d-flex callToAction justify-content-center" style="gap: 40px;">
+        
+      </div>
     </div>
-
+  </div>
 </div>
-
-<hr>
-
-{{/each}}
-
-{{#if session.logged_in}}
-<div>
-    <h3>Track your dreams from your Journal Page</h3>
-    <a href="/journal"><button class=" btn cta-button">Journal</button></a>
-</div>
-
-{{else}}
-<div class="cta">
-    <h3>Login or Signup to begin tracking your dreams</h3>
-    <button class="btn cta-button">Login</button>
-    <button class="btn cta-button">Signup</button>
-</div>
-{{/if}}
