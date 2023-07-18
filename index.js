@@ -42,6 +42,46 @@ app.get('/about', (req, res) => {
   });
 });
 
+
+// Logout route
+app.get('/logout', (req, res) => {
+    // Clear the session data
+    req.session.destroy((err) => {
+      if (err) {
+        console.error('Error destroying session:', err);
+      }
+      // Redirect the user back to the home page after logout
+      res.redirect('/');
+    });
+  });
+  
+
+  // ...
+
+// POST route to handle blog
+app.post('/submit', (req, res) => {
+    // Get the form data from the request body
+    const { subject, description } = req.body;
+  
+    // Here, you can save the form data to a database or perform any other desired actions
+  
+    // For now, let's assume we have an array to store the journal entries
+    const journalEntry = {
+      subject,
+      description,
+      // Add any other relevant data or transformations as needed
+    };
+  
+    // Assuming you have a 'journalEntries' array to store the entries
+    journalEntries.push(journalEntry);
+  
+    // Redirect the user back to the home page after submission
+    res.redirect('/');
+  });
+  
+  // ...
+  
+
 // Start the server
 app.listen(PORT, () => {
   console.log(`Server started on http://localhost:${PORT}`);
